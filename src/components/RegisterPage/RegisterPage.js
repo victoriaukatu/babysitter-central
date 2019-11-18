@@ -5,17 +5,19 @@ class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
+    role: 'true',
   };
 
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.username && this.state.password && this.state.role) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
           username: this.state.username,
           password: this.state.password,
+          role: this.state.role,
         },
       });
     } else {
@@ -65,12 +67,21 @@ class RegisterPage extends Component {
             </label>
           </div>
           <div>
+            <select 
+              name="role"
+              onChange={this.handleInputChangeFor('role')}>
+              <option value="true">Babysitter</option>
+              <option value="false">Parent</option>
+            </select>
+          </div>
+          <div>
             <input
               className="register"
               type="submit"
               name="submit"
               value="Register"
             />
+  <pre>{JSON.stringify(this.state, null, 2)}</pre>
           </div>
         </form>
         <center>
