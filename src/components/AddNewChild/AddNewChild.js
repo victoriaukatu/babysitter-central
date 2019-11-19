@@ -3,40 +3,108 @@ import { connect } from 'react-redux';
 
 class AddNewChild extends Component {
 
-    render() {
-        return (
-            <>
-                <div>
-                    <h1>New Child?</h1>
-                    <h2>Please complete the form below and click submit to add a new child to the roster</h2>
-                </div>
-                <input placeholder="Name"></input>
-                <input placeholder="Age"></input>
-                <input placeholder="Profile Picture"></input>
-                <select>
-                    <option>Female</option>
-                    <option>Male</option>
-                </select>
-                <input placeholder="Allergies"></input>
-                <select>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
-                <select>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
-                <input placeholder="Notes"></input>
-                <br/>
-                <h2>Parent Contact Information:</h2>
-                <input placeholder="Parent Name"></input>
-                <input placeholder="Phone"></input>
-                <button>Cancel</button>
-                <button>Submit</button>
-            </>
-        )
-
+    backToKidsList = () => {
+        this.props.history.push("/kids-list");
     }
+
+    state = {
+        firstname: '',
+        age: '',
+        picture: '',
+        gender: 'true',
+        allergies: '',
+        nap: 'false',
+        pottytrained: 'false',
+        notes: '',
+        parentname: '',
+        phone: '',
+    }
+
+
+    handleChange = (property) => (event) => {
+        this.setState({
+            [property]: event.target.value,
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (this.state.firstname && this.state.age && this.state.picture && this.state.gender && this.state.allergies && this.state.nap && this.state.pottytrained
+            && this.state.parentname && this.state.phone) {
+            this.props.dispatch({
+                type: 'ADD_NEW_CHILD',
+                payload: {
+                    firstname: this.state.firstname,
+                    age: this.state.age,
+                    picture: this.state.picture,
+                    gender: this.state.gender,
+                    allergies: this.state.allergies,
+                    nap: this.state.nap,
+                    pottytrained: this.state.pottytrained,
+                    notes: this.state.notes,
+                    parentname: this.state.parentname,
+                    phone: this.state.phone,
+          },
+            });
+        } else {
+            alert('Could not submit. Please complete all input fields and try again.');
+        }
+    }
+
+
+render() {
+    return (
+        <>
+            <div>
+                <h1>New Child?</h1>
+                <h2>Please complete the form below and click submit to add a new child to the roster</h2>
+            </div>
+            <form onSubmit={this.handleSubmit}>
+                Name <input onChange={this.handleChange('firstname')} name="firstname" />
+                <br />
+                Age <input onChange={this.handleChange('age')} name="age" />
+                <br />
+                Profile Picture (image url) <input onChange={this.handleChange('picture')} name="profilepicture" />
+                <br />
+                Gender <br />
+                <select>
+                    <option value='true'>Female</option>
+                    <option value='true'>Male</option>
+                </select>
+                <br />
+                Allergies <input onChange={this.handleChange('allergies')} name="allergies" />
+                <br />
+                Does he/she need a nap in the afternoon?
+                <select>
+                    <option value='true'>Yes</option>
+                    <option value='false'>No</option>
+                </select>
+                <br />
+                Is he/she potty-trained?
+                <select>
+                    <option value='true'>Yes</option>
+                    <option value='false'>No</option>
+                </select>
+                <br />
+                Notes/Any special needs?
+                <textarea onChange={this.handleChange('notes')} name="notes" />
+                <br />
+                <h2>Parent Contact Information:</h2>
+                <input onChange={this.handleChange('parentname')} name="parentname" />
+                <input onChange={this.handleChange('phone')} name="phone" />
+                <br />
+                <input type='submit' value='Submit' />
+            </form>
+            <button onClick={this.backToKidsList}>Cancel</button>
+        </>
+    )
+
+}
 }
 
-export default connect()(AddNewChild);
+const mapStateToProps = reduxState => ({
+    reduxState,
+  });
+
+export default connect(mapStateToProps)(AddNewChild);

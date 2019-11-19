@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import KidsList from '../KidsList/KidsList';
 
 import './App.css';
+import AddNewChild from '../AddNewChild/AddNewChild';
 
 class App extends Component {
   componentDidMount () {
@@ -55,6 +56,11 @@ class App extends Component {
               exact
               path="/kids-list"
               component={KidsList}
+            />
+            <ProtectedRoute
+              exact
+              path="/add-new-child"
+              component={AddNewChild}
             />
             <ProtectedRoute
               exact
