@@ -6,7 +6,14 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    
+    const queryText = `SELECT "kids_information"."firstname", "kids_information"."age", 
+                        "kids_information"."gender" FROM kids_information`;
+    pool.query(queryText)
+      .then((result) => { res.send(result.rows); })
+      .catch((error) => {
+        console.log('Error completing the SELECT kids information query!', error);
+        res.sendStatus(500);
+      });
 });
 
 /**

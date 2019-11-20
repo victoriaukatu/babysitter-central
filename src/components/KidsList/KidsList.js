@@ -35,6 +35,10 @@ const theme = createMuiTheme({
  
 class KidsList extends Component {
 
+  componentDidMount() {
+    this.props.dispatch({type: 'GET_KIDS'});
+  }
+
     goToAddPage = () => {
         this.props.history.push("/add-new-child");
     }
@@ -74,7 +78,7 @@ class KidsList extends Component {
                    </div>
                  </Paper>
                  <br/>
-                 <Button onClick={this.goToAddPage} color="secondary">Add Child</Button>
+                 <Button onClick={this.goToAddPage} color="secondary" variant="contained">Add Child</Button>
                </React.Fragment>
              </MuiThemeProvider>
            </>
