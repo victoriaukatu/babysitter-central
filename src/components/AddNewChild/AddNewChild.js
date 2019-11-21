@@ -68,21 +68,21 @@ render() {
                 Profile Picture (image url) <input onChange={this.handleChange('picture')} name="profilepicture" />
                 <br />
                 Gender <br />
-                <select>
+                <select value={this.state.gender} onChange={this.handleChange('gender')}>
                     <option value='true'>Female</option>
-                    <option value='true'>Male</option>
+                    <option value='false'>Male</option>
                 </select>
                 <br />
                 Allergies <input onChange={this.handleChange('allergies')} name="allergies" />
                 <br />
                 Does he/she need a nap in the afternoon?
-                <select>
+                <select value={this.state.nap} onChange={this.handleChange('nap')}>
                     <option value='true'>Yes</option>
                     <option value='false'>No</option>
                 </select>
                 <br />
                 Is he/she potty-trained?
-                <select>
+                <select value={this.state.pottytrained} onChange={this.handleChange('pottytrained')}>
                     <option value='true'>Yes</option>
                     <option value='false'>No</option>
                 </select>

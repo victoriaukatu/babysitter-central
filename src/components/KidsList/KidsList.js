@@ -66,12 +66,14 @@ class KidsList extends Component {
                              </TableRow>
                          </TableHead>
                          <TableBody>
-                         <TableRow>
-                            <TableCell>Joe</TableCell>
-                             <TableCell>9</TableCell>
-                             <TableCell>Male</TableCell>
-                             <TableCell>Delete</TableCell>
-                        </TableRow>
+                         {this.props.reduxState.kids.map((kid) => <TableRow><TableCell>{kid.firstname}</TableCell><TableCell>{kid.age}</TableCell><TableCell>{kid.gender}</TableCell><TableCell><Button color="primary">Delete</Button></TableCell></TableRow>)}
+                       
+                         {/* <TableRow>
+                            <TableCell>{this.props.reduxState.kids.map((kid) => <p>{kid.firstname}</p>)}</TableCell>
+                             <TableCell>{this.props.reduxState.kids.map((kid) => <p>{kid.age}</p>)}</TableCell>
+                             <TableCell>{this.props.reduxState.kids.map((kid) => <p>{kid.gender}</p>)}</TableCell>
+                             <TableCell><button>Delete</button></TableCell>
+                        </TableRow> */}
                          </TableBody>
 
                      </Table>

@@ -7,7 +7,7 @@ function* newChild(action) {
 
 function* getKidsSaga() {
     try {
-        const kidsDataResponse = yield axios.get('/');
+        const kidsDataResponse = yield axios.get('/api/child');
         console.log(kidsDataResponse.data);
         
         yield put({type: 'SET_KIDSLIST', payload: kidsDataResponse.data});
