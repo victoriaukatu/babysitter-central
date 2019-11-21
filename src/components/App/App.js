@@ -17,6 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import KidsList from '../KidsList/KidsList';
+import KidsDetails from '../KidsDetails/KidsDetails';
 
 import './App.css';
 import AddNewChild from '../AddNewChild/AddNewChild';
@@ -61,6 +62,11 @@ class App extends Component {
               exact
               path="/add-new-child"
               component={AddNewChild}
+            />
+            <ProtectedRoute
+              exact
+              path="/details"
+              component={KidsDetails}
             />
             <ProtectedRoute
               exact
