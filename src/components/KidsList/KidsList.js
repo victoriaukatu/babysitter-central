@@ -44,17 +44,18 @@ class KidsList extends Component {
     this.props.history.push("/add-new-child");
   }
 
-goToKidsDetails = (kids) => {
-  this.props.dispatch({type: 'SET_DETAILS', payload: kids});
-  this.props.history.push('/details');
-}
+  goToKidsDetails = (kid) => {
+    console.log(kid);
+    this.props.dispatch({ type: 'SET_DETAILS', payload: kid });
+    this.props.history.push('/details');
+  }
 
 
   handleChildDelete = (kidId) => {
     console.log(kidId);
     let del = window.confirm(`You are about to permanently delete ${kidId}. Are you sure?`);
     if (del) {
-          this.props.dispatch({ type: 'DELETE_KID', payload: kidId })
+      this.props.dispatch({ type: 'DELETE_KID', payload: kidId })
     }
   }
 
@@ -64,7 +65,7 @@ goToKidsDetails = (kids) => {
         <div>
           <h1 id="list">
             The following list is the kids that you babysit!
-                </h1>
+          </h1>
         </div>
         <MuiThemeProvider theme={theme}>
           <React.Fragment>
@@ -74,6 +75,7 @@ goToKidsDetails = (kids) => {
                 <Table>
                   <TableHead>
                     <TableRow>
+                      <TableCell>ID</TableCell>
                       <TableCell>Name</TableCell>
                       <TableCell>Age</TableCell>
                       <TableCell>Gender</TableCell>
@@ -81,14 +83,10 @@ goToKidsDetails = (kids) => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {this.props.reduxState.kids.map((kid) => <TableRow><TableCell onClick={this.goToKidsDetails}>{kid.firstname}</TableCell><TableCell>{kid.age}</TableCell><TableCell>{kid.gender}</TableCell><TableCell><Button onClick={() => this.handleChildDelete(kid.id)} color="primary">Delete</Button></TableCell></TableRow>)}
-
-                    {/* <TableRow>
-                            <TableCell>{this.props.reduxState.kids.map((kid) => <p>{kid.firstname}</p>)}</TableCell>
-                             <TableCell>{this.props.reduxState.kids.map((kid) => <p>{kid.age}</p>)}</TableCell>
-                             <TableCell>{this.props.reduxState.kids.map((kid) => <p>{kid.gender}</p>)}</TableCell>
-                             <TableCell><button>Delete</button></TableCell>
-                        </TableRow> */}
+                    {this.props.reduxState.kids.map((kid) => <TableRow><TableCell>{kid.id}</TableCell>
+                      <TableCell key={kid.id} onClick={() => this.goToKidsDetails(kid)}>{kid.firstname}</TableCell><TableCell>{kid.age}</TableCell>
+                      <TableCell>{kid.gender}</TableCell><TableCell>
+                      <Button key={kid.id} onClick={() => this.handleChildDelete(kid.id)} color="primary">Delete</Button></TableCell></TableRow>)}
                   </TableBody>
 
                 </Table>

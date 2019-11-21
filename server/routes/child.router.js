@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route
  */
 router.get('/', (req, res) => {
-    const queryText = `SELECT "kids_information"."firstname", "kids_information"."age", 
+    const queryText = `SELECT "kids_information"."id", "kids_information"."firstname", "kids_information"."age", 
                         "kids_information"."gender" FROM kids_information`;
     pool.query(queryText)
       .then((result) => { res.send(result.rows); })
