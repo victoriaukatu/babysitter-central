@@ -60,6 +60,33 @@ pool.query(query, [req.body.firstname, req.body.age, req.body.picture, actualGen
 })
 
 /**
+ * PUT route
+ */
+
+router.put('/newchild', (req, res) => {  
+    // SQL query
+    const query = `
+        UPDATE "kids_information" 
+        SET firstname = $1, age = $2, picture = $3, gender = $4, allergies = $5, nap = $6,
+        pottytrained = $7, notes = $8, parentname = $9, phone =$10, user_id = $11
+        WHERE id = $12
+    `;
+    // update item in the database
+    pool.query(query, [req.body.firstname, req.body.age, req.body.picture, req.body.gender, req.body.allergies, req.body.nap, req.body.pottytrained,
+        req.body.notes, req.body.parentname, req.body.phone, req.user.id, req.body.id])
+        .then((response) => {
+            console.log( 'PUT response to update the database', response);
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('There was an error with the PUT request', error);
+            res.sendStatus(500);
+        });
+});
+
+
+
+/**
  * DELETE route
  */
 

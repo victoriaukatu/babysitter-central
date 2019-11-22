@@ -26,7 +26,7 @@ class KidsDetails extends Component {
     }
 
     cancelEdit = () => {
-
+        this.props.history.push('/kids-list');
     }
 
     editMode = () => {
@@ -46,9 +46,10 @@ class KidsDetails extends Component {
     }
 
     saveChanges = () => {
+        console.log(this.state.updatedChild);
         this.props.dispatch({type: 'UPDATE_DETAILS', payload: this.state.updatedChild})
         this.setState({
-            editable: true
+            editable: true,
         })
     }
 
@@ -69,8 +70,8 @@ class KidsDetails extends Component {
                     <h2>Parent's Contact Information:</h2>
                     <h3>Parent's name: {this.props.reduxState.details.parentname}</h3>
                     <h3>Parent's phone number: {this.props.reduxState.details.phone}</h3>
-                    <Button onClick={this.backToList}>Back to List</Button>
-                    <Button onClick={this.editMode}>Edit</Button>
+                    <Button color="secondary" onClick={this.backToList}>Back to List</Button>
+                    <Button color="secondary" onClick={this.editMode}>Edit</Button>
                     </>
                 }
                 {this.state.editable === false && 
@@ -87,8 +88,9 @@ class KidsDetails extends Component {
                      <h2>Parent's Contact Information:</h2>
                      <h3>Parent's name: <input type="text" value={this.state.updatedChild.parentname} onChange={this.handleChange('parentname')}/></h3>
                      <h3>Parent's phone number: <input value={this.state.updatedChild.phone} onChange={this.handleChange('phone')}/></h3>
-                     <Button onClick={this.cancelEdit}>Cancel</Button>
-                     <Button onClick={this.saveChanges}>Save</Button>
+                     <Button color="secondary" onClick={this.cancelEdit}>Cancel</Button>
+                     <Button color="secondary" onClick={this.saveChanges}>Save</Button>
+                <pre>{JSON.stringify(this.state.updatedChild, null, 2)}</pre>
                      </>
                 }
 
