@@ -10,9 +10,9 @@ const UserPage = (props) => (
     <h1 id="welcome">
       Welcome, { props.user.username }!
     </h1>
-    <p>Babysitters, please use this as a resource to stay organized!</p>
+    <h3>Babysitters, please use this as a resource to stay organized!</h3>
     <br/>
-    <p>A note to parents: Please navigate to the Summaries tab to view how babysitting went on a given day!</p>
+    <h4>A note to parents: Please navigate to the Summaries tab to view how babysitting went on a given day!</h4>
     <LogOutButton className="log-in" />
   </div>
 );

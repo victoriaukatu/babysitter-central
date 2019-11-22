@@ -90,13 +90,13 @@ router.put('/newchild', (req, res) => {
  * DELETE route
  */
 
-router.delete('/:id', (req, res) => {
+router.delete('/newchild/:id', (req, res) => {
     const query = `
         DELETE FROM "kids_information"
         WHERE id = $1 AND user_id = $2;
     `;
-    console.log('IN DELETE itemId: ', req.params.id);
-    console.log('IN DELETE user id: ', req.user.id);
+    console.log('IN DELETE kidId: ', req.params.id);
+    console.log('IN DELETE user_id: ', req.user.id);
 
     pool.query(query, [req.params.id, req.user.id])
         .then((response) => {
