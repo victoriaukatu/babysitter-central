@@ -54,6 +54,9 @@ function* logoutUser(action) {
     // the client-side code know the user is logged out
     yield put({ type: 'UNSET_USER' });
 
+    // redirect to home page after logout
+    action.payload.push('/');
+
   } catch (error) {
     console.log('Error with user logout:', error);
   }

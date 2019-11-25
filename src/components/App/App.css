@@ -7,7 +7,13 @@ body {
     background-color: #ff4545;
     margin: 50px;
 }
-
+.MuiAvatar-root{
+    width: 250px !important;
+    height: 250px !important;
+    float: right !important;
+    margin: 20 !important;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 form {
     background-color: #dbd5d5;
     width: 30%;
@@ -23,7 +29,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: #E95476;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -33,7 +39,7 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #E3335C;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
