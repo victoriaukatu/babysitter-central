@@ -1,13 +1,17 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * GET route
  */
-router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM kids_information`;
-    pool.query(queryText)
+router.get('/', rejectUnauthenticated, (req, res) => {
+    const userID = req.user.id; 
+    console.log(userID);
+    const queryText = `SELECT * FROM kids_information
+                        WHERE "user_id" = $1`;
+    pool.query(queryText, [userID])
       .then((result) => { res.send(result.rows); })
       .catch((error) => {
         console.log('Error completing the SELECT kids information query!', error);
@@ -18,7 +22,7 @@ router.get('/', (req, res) => {
 /**
  * POST route
  */
-router.post('/newchild', (req, res) => {   
+router.post('/newchild', rejectUnauthenticated, (req, res) => {   
 // convert gender boolean to Male or Female
     let actualGender = req.body.gender
      if (actualGender === 'false'){
@@ -63,7 +67,7 @@ pool.query(query, [req.body.firstname, req.body.age, req.body.picture, actualGen
  * PUT route
  */
 
-router.put('/newchild', (req, res) => {  
+router.put('/newchild', rejectUnauthenticated, (req, res) => {  
     // SQL query
     const query = `
         UPDATE "kids_information" 
@@ -90,7 +94,7 @@ router.put('/newchild', (req, res) => {
  * DELETE route
  */
 
-router.delete('/newchild/:id', (req, res) => {
+router.delete('/newchild/:id', rejectUnauthenticated, (req, res) => {
     const query = `
         DELETE FROM "kids_information"
         WHERE id = $1 AND user_id = $2;

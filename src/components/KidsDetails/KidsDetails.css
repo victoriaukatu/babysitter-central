@@ -1,0 +1,26 @@
+/* .paper {
+    min-height: 100px;
+} */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color:#F4A4A4;
+    padding: 10px;
+  }
+
+  .grid-container > div {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .leftside {
+    grid-row: 1 / span 2;
+    float: left;
+  }
+
+  .childinfo {
+      width: auto;
+      flex-grow: 1;
+  }

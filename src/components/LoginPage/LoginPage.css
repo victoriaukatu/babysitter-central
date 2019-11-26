@@ -1,0 +1,7 @@
+body {
+    background-image: url("./swings_2.jpeg");
+    min-height: 25vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

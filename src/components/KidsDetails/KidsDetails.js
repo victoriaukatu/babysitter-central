@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import './KidsDetails.css';
 
 class KidsDetails extends Component {
     state = {
@@ -68,42 +68,31 @@ class KidsDetails extends Component {
             <>
                 {this.state.editable &&
                     <>
-                        <Container maxWidth="sm">
-                            <Grid container>
-                                <Grid container item>
-                                    <Grid item>
-                                        <h1>{this.props.reduxState.details.firstname}</h1>
-                                    </Grid>
-                                    <Grid item>
-                                        <Avatar alt="profile picture" src={this.props.reduxState.details.picture} size={70} />
-                                    </Grid>
-                                </Grid>
-                                <Grid container item xs={12}>
-                                    <Paper>
-                                        <Grid item xs={12}>
-                                            <h2>Parent's Contact Information:</h2>
-                                            <br />
-                                            <h3>Parent's name: {this.props.reduxState.details.parentname}</h3>
-                                            <h3>Parent's phone number: {this.props.reduxState.details.phone}</h3>
-                                        </Grid>
-                                    </Paper>
-                                    <Paper>
-                                        <Grid item xs={12}>
-                                            <h2>Personal Information:</h2>
-                                            <br />
-                                            <h3>Age: {this.props.reduxState.details.age}</h3>
-                                            <h3>Gender: {this.props.reduxState.details.gender}</h3>
-                                            <h3>Allergies: {this.props.reduxState.details.allergies}</h3>
-                                            <h3>Does he/she need a nap?: {this.props.reduxState.details.nap}</h3>
-                                            <h3>Is he/she potty-trained?: {this.props.reduxState.details.pottytrained}</h3>
-                                            <h3>Notes/Any special needs?: {this.props.reduxState.details.notes}</h3>
-                                            <Button color="secondary" variant="contained" onClick={this.backToList}>Back to List</Button>
-                                            <Button color="secondary" variant="contained" onClick={this.editMode}>Edit</Button>
-                                        </Grid>
-                                    </Paper>
-                                </Grid>
-                            </Grid>
-                        </Container>
+
+                        <div class="grid-container">
+                            <div class="leftside">
+                                <Paper className="paper"><h1>{this.props.reduxState.details.firstname}</h1>
+                                    <h2>Parent's Contact Information:</h2>
+                                    <h3>Parent's name: {this.props.reduxState.details.parentname}</h3>
+                                    <h3>Parent's phone number: {this.props.reduxState.details.phone}</h3>
+                                </Paper>
+                            </div>
+                            <div class="childinfo">
+                                <img alt="profile picture" src={this.props.reduxState.details.picture} />
+                                <Paper>
+                                    <h2>Personal Information:</h2>
+                                    <br />
+                                    <h3>Age: {this.props.reduxState.details.age}</h3>
+                                    <h3>Gender: {this.props.reduxState.details.gender}</h3>
+                                    <h3>Allergies: {this.props.reduxState.details.allergies}</h3>
+                                    <h3>Does he/she need a nap in the afternoon?: {this.props.reduxState.details.nap}</h3>
+                                    <h3>Is he/she potty-trained?: {this.props.reduxState.details.pottytrained}</h3>
+                                    <h3>Notes/Any special needs?: {this.props.reduxState.details.notes}</h3>
+                                    <Button color="secondary" variant="contained" onClick={this.backToList}>Back to List</Button>
+                                    <Button color="secondary" variant="contained" onClick={this.editMode}>Edit</Button>
+                                </Paper>
+                            </div>
+                        </div>
                     </>
                 }
                 {this.state.editable === false &&
@@ -111,7 +100,7 @@ class KidsDetails extends Component {
                         <Container maxWidth="sm">
                             <Paper>
                                 <Grid>
-                                    <Avatar alt="profile picture" src={this.state.updatedChild.picture} size={70} />
+                                    <img alt="profile picture" src={this.state.updatedChild.picture} size={70} />
                                 </Grid>
                                 <Grid>
                                     <h1>{this.props.reduxState.details.firstname}</h1>
