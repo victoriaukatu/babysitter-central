@@ -1,7 +1,9 @@
-body {
-    background-image: url("./swings_2.jpeg");
-    min-height: 25vh;
-    background-position: center;
+.login-container {
+    background-image: url("/images/swings.png");
+    height: 1500px;
+    width: 1500px;
     background-repeat: no-repeat;
+    /* object-fit: contain; */
     background-size: cover;
-}
+  }
+

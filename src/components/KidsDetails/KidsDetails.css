@@ -3,9 +3,10 @@
 } */
 
 .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: auto auto auto auto;
+    grid-gap: 10px; */
     background-color:#F4A4A4;
     padding: 10px;
   }
@@ -16,11 +17,17 @@
   }
 
   .leftside {
-    grid-row: 1 / span 2;
     float: left;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 500px;
+    height: 100%;
+    background-color: #ffb3b3;
   }
 
   .childinfo {
+      flex-direction: column;
       width: auto;
       flex-grow: 1;
+      background-color: #ffb3b3;
   }

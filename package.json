@@ -21,7 +21,8 @@
     "react-scripts": "^3.0.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.0.2"
+    "redux-saga": "^1.0.2",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "start": "node server/server.js",

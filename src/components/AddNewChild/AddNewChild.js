@@ -91,12 +91,13 @@ render() {
                 <textarea onChange={this.handleChange('notes')} name="notes" />
                 <br />
                 <h2>Parent Contact Information:</h2>
-                <input onChange={this.handleChange('parentname')} name="parentname" />
-                <input onChange={this.handleChange('phone')} name="phone" />
+                Parent Name <input onChange={this.handleChange('parentname')} name="parentname" />
+                Phone Number <input onChange={this.handleChange('phone')} name="phone" />
                 <br />
                 <input type='submit' value='Submit' />
+                <button onClick={this.backToKidsList}>Cancel</button>
             </form>
-            <button onClick={this.backToKidsList}>Cancel</button>
+            
         </>
     )
 

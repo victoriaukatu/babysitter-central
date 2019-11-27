@@ -71,15 +71,13 @@ class KidsDetails extends Component {
 
                         <div class="grid-container">
                             <div class="leftside">
-                                <Paper className="paper"><h1>{this.props.reduxState.details.firstname}</h1>
+                                <h1>{this.props.reduxState.details.firstname}</h1>
                                     <h2>Parent's Contact Information:</h2>
                                     <h3>Parent's name: {this.props.reduxState.details.parentname}</h3>
                                     <h3>Parent's phone number: {this.props.reduxState.details.phone}</h3>
-                                </Paper>
                             </div>
                             <div class="childinfo">
                                 <img alt="profile picture" src={this.props.reduxState.details.picture} />
-                                <Paper>
                                     <h2>Personal Information:</h2>
                                     <br />
                                     <h3>Age: {this.props.reduxState.details.age}</h3>
@@ -90,7 +88,6 @@ class KidsDetails extends Component {
                                     <h3>Notes/Any special needs?: {this.props.reduxState.details.notes}</h3>
                                     <Button color="secondary" variant="contained" onClick={this.backToList}>Back to List</Button>
                                     <Button color="secondary" variant="contained" onClick={this.editMode}>Edit</Button>
-                                </Paper>
                             </div>
                         </div>
                     </>

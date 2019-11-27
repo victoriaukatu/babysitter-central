@@ -1,6 +1,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+    background-color: #e6ffcc;
+    background-image: none;
 }
 
 .alert {
@@ -12,17 +14,18 @@ body {
     height: 100px !important;
     float: right !important;
     margin: 20 !important; */
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
 }
 form {
     background-color: #dbd5d5;
-    width: 25%;
-    height: 250px;
+    display: inline-block;
+    /* width: 25%;
+    height: 250px; */
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
     opacity: 0.72;
-    float: left;
+    /* float: left; */
     text-align: center;
 }
 

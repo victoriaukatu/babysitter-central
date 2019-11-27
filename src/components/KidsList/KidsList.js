@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import pink from '@material-ui/core/colors/pink';
+import swal from 'sweetalert';
 
 const theme = createMuiTheme({
   palette: {
@@ -50,11 +51,19 @@ class KidsList extends Component {
 
 
   handleChildDelete = (kidId) => {
-    console.log(kidId);
-    let del = window.confirm(`You are about to permanently delete ${kidId}. Are you sure?`);
-    if (del) {
-      this.props.dispatch({ type: 'DELETE_KID', payload: kidId })
-    }
+    swal({
+      title: "Are you sure?",
+      text: "Click OK if you wish to permanently delete this child",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("This child has been deleted");
+        this.props.dispatch({ type: 'DELETE_KID', payload: kidId })
+      } 
+    });
   }
 
   render() {

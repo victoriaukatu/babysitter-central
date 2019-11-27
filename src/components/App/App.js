@@ -15,12 +15,13 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+import Resources from '../Resources/Resources';
 import KidsList from '../KidsList/KidsList';
 import KidsDetails from '../KidsDetails/KidsDetails';
-
-import './App.css';
+import Summaries from '../Summaries/Summaries';
 import AddNewChild from '../AddNewChild/AddNewChild';
+import './App.css';
+
 
 class App extends Component {
   componentDidMount () {
@@ -51,6 +52,11 @@ class App extends Component {
               path="/home"
               component={UserPage}
             />
+            <ProtectedRoute
+              exact
+              path="/summaries"
+              component={Summaries}
+            />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute
@@ -71,7 +77,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/info"
-              component={InfoPage}
+              component={Resources}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
