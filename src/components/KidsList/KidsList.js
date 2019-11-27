@@ -46,7 +46,7 @@ class KidsList extends Component {
   goToKidsDetails = (kid) => {
     console.log(kid);
     this.props.dispatch({ type: 'SET_DETAILS', payload: kid });
-    this.props.history.push('/details');
+    this.props.history.push("/details");
   }
 
 

@@ -1,9 +1,8 @@
 .login-container {
-    background-image: url("/images/swings.png");
-    height: 1500px;
-    width: 1500px;
+    background-image: url("/images/babywithtoys.png");
     background-repeat: no-repeat;
-    /* object-fit: contain; */
+    object-fit: scale-down;
     background-size: cover;
+    min-height: 100vh;
   }
 
