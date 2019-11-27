@@ -20,6 +20,7 @@ import KidsList from '../KidsList/KidsList';
 import KidsDetails from '../KidsDetails/KidsDetails';
 import Summaries from '../Summaries/Summaries';
 import AddNewChild from '../AddNewChild/AddNewChild';
+import AddNewSummary from '../AddNewSummary/AddNewSummary';
 import './App.css';
 
 
@@ -56,6 +57,11 @@ class App extends Component {
               exact
               path="/summaries"
               component={Summaries}
+            />
+            <ProtectedRoute
+              exact
+              path="/add-new-summary"
+              component={AddNewSummary}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
