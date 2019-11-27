@@ -16,9 +16,9 @@ function* newSummary(action) {
 //     }
 // }
 
-function* addNewChildSaga() {
+function* addNewSummariesSaga() {
     yield takeLatest('ADD_NEW_SUMMARY', newSummary);
-    yield takeEvery('GET_SUMMARIES', getSummariesSaga);
+    // yield takeEvery('GET_SUMMARIES', getSummariesSaga);
   }
   
 
@@ -26,4 +26,4 @@ function* addNewChildSaga() {
 
 
 
-  export default addNewChildSaga;
+  export default addNewSummariesSaga;

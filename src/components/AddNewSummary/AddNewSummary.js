@@ -41,7 +41,7 @@ class AddNewSummary extends Component {
             <h1>New Summary</h1>
             <br/>
             <form onSubmit={this.handleSubmit}>
-                Date <input onChange={this.handleChange('date')} name="date" />
+                Date <input placeholder="e.g. Month DD, YYYY" onChange={this.handleChange('date')} name="date" />
                 <br />
                 Babysitting Summary <textarea onChange={this.handleChange('summary')} name="summary" />
                 <br />
