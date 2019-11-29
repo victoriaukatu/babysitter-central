@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
@@ -18,17 +17,6 @@ const theme = createMuiTheme({
       main: '#4a148c',
     },
   },
-});
-
-
-const useStyles = makeStyles({
-  root: {
-    width: "100%"
-  },
-  tableWrapper: {
-    maxHeight: 440,
-    overflow: "auto"
-  }
 });
 
 

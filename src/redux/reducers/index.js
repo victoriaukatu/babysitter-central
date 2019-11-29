@@ -4,6 +4,8 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import kids from './newChildReducer';
 import details from './detailsReducer';
+import summaries from './summariesReducer';
+import summarydetails from './summaryDetailsReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   kids, // kids reducer
   details, //this reducer is used for displaying kids details
+  summaries, // this reducer is used for displaying the babysitting summaries written by the babysitter
+  summarydetails, // this reducer is used for displaying the invidual babysitting summary information
 });
 
 export default rootReducer;

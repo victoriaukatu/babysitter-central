@@ -5,20 +5,20 @@ function* newSummary(action) {
     yield axios.post('/api/parent/newsummary', action.payload);
 }
 
-// function* getKidsSaga() {
-//     try {
-//         const kidsDataResponse = yield axios.get('/api/child');
-//         console.log(kidsDataResponse.data);
+function* getSummariesSaga() {
+    try {
+        const summaryDataResponse = yield axios.get('/api/parent');
+        console.log(summaryDataResponse.data);
         
-//         yield put({type: 'SET_KIDSLIST', payload: kidsDataResponse.data});
-//     } catch (error) {
-//         console.log('There was an error getting kids data!', error);
-//     }
-// }
+        yield put({type: 'SET_SUMMARIES', payload: summaryDataResponse.data});
+    } catch (error) {
+        console.log('There was an error getting summary data!', error);
+    }
+}
 
 function* addNewSummariesSaga() {
     yield takeLatest('ADD_NEW_SUMMARY', newSummary);
-    // yield takeEvery('GET_SUMMARIES', getSummariesSaga);
+    yield takeEvery('GET_SUMMARIES', getSummariesSaga);
   }
   
 

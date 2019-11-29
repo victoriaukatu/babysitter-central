@@ -21,6 +21,7 @@ import KidsDetails from '../KidsDetails/KidsDetails';
 import Summaries from '../Summaries/Summaries';
 import AddNewChild from '../AddNewChild/AddNewChild';
 import AddNewSummary from '../AddNewSummary/AddNewSummary';
+import SummariesDetails from '../SummariesDetails/SummariesDetails';
 import './App.css';
 
 
@@ -57,6 +58,11 @@ class App extends Component {
               exact
               path="/summaries"
               component={Summaries}
+            />
+            <ProtectedRoute
+              exact
+              path="/summarydetails"
+              component={SummariesDetails}
             />
             <ProtectedRoute
               exact

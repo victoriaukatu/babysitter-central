@@ -4,5 +4,6 @@
     object-fit: scale-down;
     background-size: cover;
     min-height: 100vh;
+    opacity: 0.85;
   }
 

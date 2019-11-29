@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
@@ -24,11 +23,6 @@ class KidsDetails extends Component {
             parentname: '',
             phone: '',
         },
-        bigAvatar: {
-            margin: 10,
-            width: 60,
-            height: 60,
-        }
     }
 
     backToList = () => {
@@ -77,7 +71,7 @@ class KidsDetails extends Component {
                                     <h3>Parent's phone number: {this.props.reduxState.details.phone}</h3>
                             </div>
                             <div class="childinfo">
-                                <img alt="profile picture" src={this.props.reduxState.details.picture} />
+                                <img alt="profile" src={this.props.reduxState.details.picture} />
                                     <h2>Personal Information:</h2>
                                     <br />
                                     <h3>Age: {this.props.reduxState.details.age}</h3>
@@ -97,14 +91,14 @@ class KidsDetails extends Component {
                         <Container maxWidth="sm">
                             <Paper>
                                 <Grid>
-                                    <img alt="profile picture" src={this.state.updatedChild.picture} size={70} />
+                                    <img alt="profile" src={this.state.updatedChild.picture} size={70} />
                                 </Grid>
                                 <Grid>
                                     <h1>{this.props.reduxState.details.firstname}</h1>
                                 </Grid>
                                 <h2>Personal Information:</h2>
                                 <Grid>
-                                    <h3><b>Age:</b> <input type="text" value={this.state.updatedChild.age} onChange={this.handleChange('age')} /></h3>
+                                    <h3>Age:<input type="text" value={this.state.updatedChild.age} onChange={this.handleChange('age')} /></h3>
                                     <h3>Gender: <input type="text" value={this.state.updatedChild.gender} onChange={this.handleChange('gender')} /></h3>
                                     <h3>Allergies: <input type="text" value={this.state.updatedChild.allergies} onChange={this.handleChange('allergies')} /></h3>
                                     <h3>Does he/she need a nap?: <input type="text" value={this.state.updatedChild.nap} onChange={this.handleChange('nap')} /></h3>
