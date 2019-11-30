@@ -47,8 +47,7 @@ class AddNewSummary extends Component {
                 <br />
                 <input type='submit' value='Submit' />
                 <br/>
-        <pre>{JSON.stringify(this.state, null, 2)}</pre>
-              <Button onClick={this.backToSummaries} variant="contained">Back to Summaries</Button>
+              <Button onClick={this.backToSummaries} variant="contained">Cancel</Button>
             </form>
             </>
         )

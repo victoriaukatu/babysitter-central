@@ -47,8 +47,9 @@ class Summaries extends Component {
                     <div>
                         {this.props.reduxState.summaries.map((summary) => 
                             <>
-                            <Card key={summary.id} onClick={this.goToDetails(summary)}>{summary.date}</Card>
-                            <Button key={summary.id} onClick={() => this.handleSummaryDelete(summary.id)} color="primary">Delete</Button></>)}
+                            <Card key={summary.id} onClick={() => this.goToDetails(summary)}>{summary.date}
+                            <Button key={summary.id} onClick={() => this.handleSummaryDelete(summary.id)} color="primary">Delete</Button></Card>
+                            </>)}
                     </div>
                         <Button onClick={this.addSummary} variant="contained">Add Babysitting Summary</Button>
                     
