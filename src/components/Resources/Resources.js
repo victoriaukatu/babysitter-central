@@ -1,4 +1,5 @@
 import React from 'react';
+import './Resources.css';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -6,7 +7,7 @@ import React from 'react';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 const Resources = () => (
-  <div>
+  <div class="resources">
     <h2>The links below can serve as helpful resources for you!</h2>
     <h2>Food</h2>
    <ul>

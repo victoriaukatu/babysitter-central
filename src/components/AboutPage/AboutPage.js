@@ -14,9 +14,9 @@ const AboutPage = () => (
         It's likely that you are familiar with this traditional African proverb. It describes the fact that a child, in addition to their 
         primary caregiver, has many people in their life who nuture them, shape them, and help them grow. One person can't do it alone.
       </h4> 
-      <h4>That is why I'm thankful that I have the privilege of babysitting. When I am not at work or busy coding, I enjoy spending my time 
-          taking care of my friends' children. I love thinking up fun activities to do with the kids or simply playing a round of good 'ol
-          hide-and-seek with them. I get to contribute to them 
+      <h4>That is why I'm thankful that I have the privilege of babysitting. I get to be part of their story and have a positive impact on 
+          the kids. When I am not at work or busy coding, I enjoy spending my time taking care of my friends' children. I love thinking up 
+          fun activities to do with the kids or simply playing a round of good 'ol hide-and-seek with them. 
       </h4>
       <h3>
       ... But there's one problem.
