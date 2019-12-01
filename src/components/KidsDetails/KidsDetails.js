@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import './KidsDetails.css';
 
 class KidsDetails extends Component {
@@ -71,15 +70,14 @@ class KidsDetails extends Component {
                                     <h3>Parent's phone number: {this.props.reduxState.details.phone}</h3>
                             </div>
                             <div class="childinfo">
-                                <img alt="profile" src={this.props.reduxState.details.picture} />
-                                    <h2>Personal Information:</h2>
-                                    <br />
-                                    <h3>Age: {this.props.reduxState.details.age}</h3>
-                                    <h3>Gender: {this.props.reduxState.details.gender}</h3>
-                                    <h3>Allergies: {this.props.reduxState.details.allergies}</h3>
-                                    <h3>Does he/she need a nap in the afternoon?: {this.props.reduxState.details.nap}</h3>
-                                    <h3>Is he/she potty-trained?: {this.props.reduxState.details.pottytrained}</h3>
-                                    <h3>Notes/Any special needs?: {this.props.reduxState.details.notes}</h3>
+                                <img class="pic" alt="profile" src={this.props.reduxState.details.picture} />
+                                    <h1>Personal Information:</h1>
+                                    <h2>Age: {this.props.reduxState.details.age}</h2>
+                                    <h2>Gender: {this.props.reduxState.details.gender}</h2>
+                                    <h2>Allergies: {this.props.reduxState.details.allergies}</h2>
+                                    <h2>Does he/she need a nap in the afternoon?: {this.props.reduxState.details.nap}</h2>
+                                    <h2>Is he/she potty-trained?: {this.props.reduxState.details.pottytrained}</h2>
+                                    <h2>Notes/Any special needs?: {this.props.reduxState.details.notes}</h2>
                                     <Button color="secondary" variant="contained" onClick={this.backToList}>Back to List</Button>
                                     <Button color="secondary" variant="contained" onClick={this.editMode}>Edit</Button>
                             </div>
@@ -88,30 +86,39 @@ class KidsDetails extends Component {
                 }
                 {this.state.editable === false &&
                     <>
-                        <Container maxWidth="sm">
+                        <Container className="edit" maxWidth="sm">
                             <Paper>
+                                <center>
+                                <div class="editablepic">
+                                    <img class="editpicture" alt="profile" src={this.state.updatedChild.picture} size={70} />
+                                </div>
+                                </center>
                                 <Grid>
-                                    <img alt="profile" src={this.state.updatedChild.picture} size={70} />
-                                </Grid>
-                                <Grid>
+                                    <center>
                                     <h1>{this.props.reduxState.details.firstname}</h1>
+                                    </center>
                                 </Grid>
+                                <center>
                                 <h2>Personal Information:</h2>
+                                </center>
                                 <Grid>
+                                    <center>
                                     <h3>Age:<input type="text" value={this.state.updatedChild.age} onChange={this.handleChange('age')} /></h3>
                                     <h3>Gender: <input type="text" value={this.state.updatedChild.gender} onChange={this.handleChange('gender')} /></h3>
                                     <h3>Allergies: <input type="text" value={this.state.updatedChild.allergies} onChange={this.handleChange('allergies')} /></h3>
                                     <h3>Does he/she need a nap?: <input type="text" value={this.state.updatedChild.nap} onChange={this.handleChange('nap')} /></h3>
                                     <h3>Is he/she potty-trained?: <input type="text" value={this.state.updatedChild.pottytrained} onChange={this.handleChange('pottytrained')} /></h3>
                                     <h3>Notes/Any special needs?: <input type="text" value={this.state.updatedChild.notes} onChange={this.handleChange('notes')} /></h3>
+                                    </center>
                                 </Grid>
                                 <br />
-                                <Typography><h2>Parent's Contact Information:</h2></Typography>
+                                <center>
+                                <h2>Parent's Contact Information:</h2>
                                 <h3>Parent's name: <input type="text" value={this.state.updatedChild.parentname} onChange={this.handleChange('parentname')} /></h3>
                                 <h3>Parent's phone number: <input value={this.state.updatedChild.phone} onChange={this.handleChange('phone')} /></h3>
                                 <Button color="secondary" onClick={this.cancelEdit}>Cancel</Button>
                                 <Button color="secondary" onClick={this.saveChanges}>Save</Button>
-                                <pre>{JSON.stringify(this.state.updatedChild, null, 2)}</pre>
+                                </center>
                             </Paper>
                         </Container>
                     </>

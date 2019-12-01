@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import swal from 'sweetalert';
 
 class AddNewSummary extends Component {
     
@@ -22,6 +23,7 @@ class AddNewSummary extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         if (this.state.date && this.state.summary) {
+            swal("Successfully added!", "", "success");
             this.props.dispatch({
                 type: 'ADD_NEW_SUMMARY',
                 payload: {

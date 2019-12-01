@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import { createMuiTheme } from '@material-ui/core/styles';
 import pink from '@material-ui/core/colors/pink';
 import swal from 'sweetalert';
+import './KidsList.css';
 
 const theme = createMuiTheme({
   palette: {
@@ -57,24 +58,27 @@ class KidsList extends Component {
   render() {
     return (
       <>
+      <div class="kidslist">
         <div>
           <h1 id="list">
-            The following list is the kids that you babysit!
+            Kids List!
           </h1>
+          <h2>
+            Click on a name to see more details for that child
+          </h2>
         </div>
         <MuiThemeProvider theme={theme}>
           <React.Fragment>
             <Paper className="root">
               <div className="tableWrapper">
-                <h2>List of Kids</h2>
                 <Table>
                   <TableHead>
                     <TableRow>
                       <TableCell>ID</TableCell>
-                      <TableCell>Name</TableCell>
-                      <TableCell>Age</TableCell>
-                      <TableCell>Gender</TableCell>
-                      <TableCell>Delete</TableCell>
+                      <TableCell>NAME</TableCell>
+                      <TableCell>AGE</TableCell>
+                      <TableCell>GENDER</TableCell>
+                      <TableCell>DELETE</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -88,9 +92,10 @@ class KidsList extends Component {
               </div>
             </Paper>
             <br />
-            <Button onClick={this.goToAddPage} color="secondary" variant="contained">Add Child</Button>
+            <Button onClick={this.goToAddPage} variant="contained">Add Child</Button>
           </React.Fragment>
         </MuiThemeProvider>
+        </div>
       </>
 
     )

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
+import './AddNewChild.css';
 
 class AddNewChild extends Component {
 
@@ -32,6 +34,7 @@ class AddNewChild extends Component {
 
         if (this.state.firstname && this.state.age && this.state.picture && this.state.gender && this.state.allergies && this.state.nap && this.state.pottytrained
             && this.state.parentname && this.state.phone) {
+            swal("Successfully added!", "", "success");
             this.props.dispatch({
                 type: 'ADD_NEW_CHILD',
                 payload: {
@@ -56,11 +59,11 @@ class AddNewChild extends Component {
 render() {
     return (
         <>
-            <div>
+            <div class="title">
                 <h1>New Child?</h1>
                 <h2>Please complete the form below and click submit to add a new child to the roster</h2>
             </div>
-            <form onSubmit={this.handleSubmit}>
+            <form class="newchildform" onSubmit={this.handleSubmit}>
                 Name <input onChange={this.handleChange('firstname')} name="firstname" />
                 <br />
                 Age <input onChange={this.handleChange('age')} name="age" />

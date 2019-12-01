@@ -2,13 +2,21 @@
     min-height: 100px;
 } */
 
+
 .grid-container {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     /* grid-template-columns: auto auto auto auto;
     grid-gap: 10px; */
-    background-color:#F4A4A4;
-    padding: 10px;
+    /* background-color:#F4A4A4;
+    padding: 10px; */ 
+
+    display: flex;
+    background-image: url("/images/paperclips.png");
+    background-repeat: no-repeat;
+    object-fit: scale-down;
+    background-size: cover;
+    min-height: 90vh;
   }
 
   .grid-container > div {
@@ -20,14 +28,30 @@
     float: left;
     flex-direction: column;
     justify-content: flex-start;
-    width: 500px;
+    width: 300px;
     height: 100%;
-    background-color: #ffb3b3;
   }
 
   .childinfo {
       flex-direction: column;
-      width: auto;
-      flex-grow: 1;
-      background-color: #ffb3b3;
+      width: 80%;
+  }
+
+  .pic {
+    width: 450px;
+    height: 300px;
+  }
+
+  .editablepic {
+    justify-content: center;
+    right: 338px;
+    text-align: center;
+  }
+
+  .editpicture {
+    display: block;
+    text-align: center;
+    left: 338px;
+    right: 338px;
+    margin: auto;
   }

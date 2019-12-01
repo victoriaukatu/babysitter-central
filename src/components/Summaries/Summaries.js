@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import swal from 'sweetalert';
 import './Summaries.css';
@@ -48,11 +47,11 @@ class Summaries extends Component {
                     <div>
                         {this.props.reduxState.summaries.map((summary) => 
                             <>
-                            <Card key={summary.id} onClick={() => this.goToDetails(summary)}>{summary.date}
-                            <Button key={summary.id} onClick={() => this.handleSummaryDelete(summary.id)} color="primary">Delete</Button></Card>
+                            <div className="cards" key={summary.id} onClick={() => this.goToDetails(summary)}>{summary.date}
+                            <Button key={summary.id} onClick={() => this.handleSummaryDelete(summary.id)} color="primary">Delete</Button></div>
                             </>)}
                     </div>
-                        <Button onClick={this.addSummary} variant="contained">Add Babysitting Summary</Button>
+                        <Button onClick={this.addSummary} variant="contained">Add Babysitting Report</Button>
                     
                 </div>
             </>
