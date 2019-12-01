@@ -1,0 +1,23 @@
+.user-container {
+    display: flex;
+    background-image: url("/images/boywithtrucks.png");
+    background-repeat: no-repeat;
+    object-fit: scale-down;
+    background-size: cover;
+    min-height: 90vh;
+    opacity: 0.75;
+  }
+
+  .card {
+      width: 400px;
+      background-color: #e6e6ff;
+      padding: 10px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .position {
+      position: absolute;
+      top: 200px;
+      right: 500px;
+      bottom: 100px;
+  }

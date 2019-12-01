@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import swal from 'sweetalert';
+import './Summaries.css';
 
 
 class Summaries extends Component {

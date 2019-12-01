@@ -81,7 +81,6 @@ class RegisterPage extends Component {
               name="submit"
               value="Register"
             />
-  <pre>{JSON.stringify(this.state, null, 2)}</pre>
           </div>
         </form>
         <center>
