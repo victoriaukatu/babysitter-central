@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function* newSummary(action) {
     yield axios.post('/api/parent/newsummary', action.payload);
+    yield put({ type: 'GET_SUMMARIES'});
 }
 
 function* getSummariesSaga() {

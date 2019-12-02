@@ -1,0 +1,9 @@
+.form {
+    background-color: #dbd5d5;
+    display: inline-block;
+    margin: 20px auto;
+    padding: 25px;
+    margin-left: 500px;
+    border-radius: 2px;
+    text-align: center;
+}
