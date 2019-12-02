@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import './SummariesDetails.css';
 
 class SummariesDetails extends Component {
     state = {
@@ -49,19 +50,27 @@ class SummariesDetails extends Component {
             <>
                 {this.state.editable &&
                     <>
-                        <h2>Date: {this.props.reduxState.summarydetails.date} </h2>
-                        <h2>Summary: {this.props.reduxState.summarydetails.summary} </h2>
-                        <Button color="secondary" variant="contained" onClick={this.backToList}>Back to List</Button>
-                        <Button color="secondary" variant="contained" onClick={this.editMode}>Edit</Button>
+                        <div className="background">
+                            <div className="text">
+                                <h2>Date: {this.props.reduxState.summarydetails.date} </h2>
+                                <h2>Summary: {this.props.reduxState.summarydetails.summary} </h2>
+                                <Button color="secondary" variant="contained" onClick={this.backToList}>Back to List</Button>
+                                <Button color="secondary" variant="contained" onClick={this.editMode}>Edit</Button>
+                            </div>
+                        </div>
                     </>
                 }
 
                 {this.state.editable === false &&
                     <>
-                        <h2>Date: <input type="text" value={this.state.updatedSummary.date} onChange={this.handleChange('date')} /></h2>
-                        <h2>Summary: <input type="text" value={this.state.updatedSummary.summary} onChange={this.handleChange('summary')} /></h2>
-                        <Button color="secondary" onClick={this.cancelEdit}>Cancel</Button>
-                        <Button color="secondary" onClick={this.saveChanges}>Save</Button>
+                        <div className="background">
+                        <div className="text">
+                            <h2>Date: <input type="text" value={this.state.updatedSummary.date} onChange={this.handleChange('date')} /></h2>
+                            <h2>Summary: <textarea type="text" value={this.state.updatedSummary.summary} onChange={this.handleChange('summary')} /></h2>
+                            <Button color="secondary" onClick={this.cancelEdit}>Cancel</Button>
+                            <Button color="secondary" onClick={this.saveChanges}>Save</Button>
+                        </div>
+                        </div>
                     </>
                 }
             </>

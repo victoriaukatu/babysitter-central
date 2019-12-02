@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import swal from 'sweetalert';
 
@@ -31,8 +32,9 @@ class AddNewSummary extends Component {
                     summary: this.state.summary,
           },
             });
+            this.props.history.push('/summaries');
         } else {
-            alert('Could not submit. Please complete all input fields and try again.');
+            swal('Error! Could not submit. Please complete all input fields and try again.');
         }
     }
 
@@ -63,4 +65,4 @@ const mapStateToProps = reduxState => ({
     reduxState,
   });
 
-export default connect(mapStateToProps)(AddNewSummary);
+export default withRouter(connect(mapStateToProps)(AddNewSummary));

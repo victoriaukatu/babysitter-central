@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router-dom';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import pink from '@material-ui/core/colors/pink';
@@ -107,4 +108,4 @@ const mapStateToProps = reduxState => ({
 });
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(KidsList);
+export default withRouter(connect(mapStateToProps)(KidsList));

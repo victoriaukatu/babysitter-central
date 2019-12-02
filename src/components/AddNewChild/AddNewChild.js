@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import swal from 'sweetalert';
 import './AddNewChild.css';
 
@@ -50,8 +51,9 @@ class AddNewChild extends Component {
                     phone: this.state.phone,
           },
             });
+            this.props.history.push('/kids-list');
         } else {
-            alert('Could not submit. Please complete all input fields and try again.');
+            swal('Error! Could not submit. Please complete all input fields and try again.');
         }
     }
 
@@ -111,4 +113,4 @@ const mapStateToProps = reduxState => ({
     reduxState,
   });
 
-export default connect(mapStateToProps)(AddNewChild);
+export default withRouter(connect(mapStateToProps)(AddNewChild));

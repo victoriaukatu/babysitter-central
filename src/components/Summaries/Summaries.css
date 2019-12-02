@@ -1,4 +1,11 @@
 .cards {
     display: flex;
-    width: 800px;
+    width: 600px;
+    background: #e6e6ff;
+    font-size: large;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #8080ff;
 }
+

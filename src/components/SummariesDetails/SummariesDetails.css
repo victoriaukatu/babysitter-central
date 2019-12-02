@@ -1,0 +1,18 @@
+.background {
+    display: flex;
+    background-image: url("/images/linednotebook.png");
+    background-repeat: no-repeat;
+    object-fit: scale-down;
+    background-size: cover;
+    min-height: 90vh;
+}
+
+.text {
+    position: absolute;
+    top: 200px;
+    right: 500px;
+    bottom: 100px;
+    left: 800px;
+    width: 300px;
+    height: 200px;
+}
