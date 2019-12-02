@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import './RegisterPage.css';
 
 class RegisterPage extends Component {
   state = {
@@ -42,7 +43,7 @@ class RegisterPage extends Component {
             {this.props.errors.registrationMessage}
           </h2>
         )}
-        <form onSubmit={this.registerUser}>
+        <form class="form" onSubmit={this.registerUser}>
           <h1>Register User</h1>
           <div>
             <label htmlFor="username">
@@ -82,8 +83,7 @@ class RegisterPage extends Component {
               value="Register"
             />
           </div>
-        </form>
-        <center>
+          <center>
           <button
             type="button"
             className="link-button"
@@ -92,6 +92,7 @@ class RegisterPage extends Component {
             Login
           </button>
         </center>
+        </form> 
       </div>
     );
   }

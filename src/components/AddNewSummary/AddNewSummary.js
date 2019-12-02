@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import swal from 'sweetalert';
+import './AddNewSummary.css';
 
 class AddNewSummary extends Component {
     
@@ -42,9 +43,11 @@ class AddNewSummary extends Component {
     render() {
         return (
             <>
-            <h1>New Summary</h1>
+            <center>
+            <h1>Please use this form to create a new babysitting summary!</h1>
+            </center>
             <br/>
-            <form onSubmit={this.handleSubmit}>
+            <form class="form" onSubmit={this.handleSubmit}>
                 Date <input placeholder="e.g. Month DD, YYYY" onChange={this.handleChange('date')} name="date" />
                 <br />
                 Babysitting Summary <textarea onChange={this.handleChange('summary')} name="summary" />
