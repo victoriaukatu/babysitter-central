@@ -1,7 +1,8 @@
 footer {
-    position:fixed;bottom:25px;
+    position:fixed;bottom:30px;
     width:100%;
     display:block;
+    left: 45px;
 }
     
 

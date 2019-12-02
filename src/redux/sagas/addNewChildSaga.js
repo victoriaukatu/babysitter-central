@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function* newChild(action) {
     yield axios.post('/api/child/newchild', action.payload);
+    yield put({ type: 'GET_KIDS'});
 }
 
 function* getKidsSaga() {

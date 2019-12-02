@@ -7,3 +7,7 @@
     opacity: 0.85;
   }
 
+.info {
+  position: absolute;
+  left: 27px;
+}
