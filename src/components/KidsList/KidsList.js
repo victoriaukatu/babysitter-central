@@ -10,6 +10,7 @@ import pink from '@material-ui/core/colors/pink';
 import swal from 'sweetalert';
 import './KidsList.css';
 
+// set Material UI color theme
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -25,21 +26,24 @@ const theme = createMuiTheme({
 
 class KidsList extends Component {
 
+  // get the kids information from the database on page load
   componentDidMount() {
     this.props.dispatch({ type: 'GET_KIDS' });
   }
 
+  // this will navigate to the add new child form
   goToAddPage = () => {
     this.props.history.push("/add-new-child");
   }
 
+  // this will go to the details of the child that was clicked
   goToKidsDetails = (kid) => {
     console.log(kid);
     this.props.dispatch({ type: 'SET_DETAILS', payload: kid });
     this.props.history.push("/details");
   }
 
-
+  // this will trigger the delete request to remove this child from the database
   handleChildDelete = (kidId) => {
     swal({
       title: "Are you sure?",

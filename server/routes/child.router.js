@@ -46,7 +46,7 @@ router.post('/newchild', rejectUnauthenticated, (req, res) => {
      else{
         actualPottytrained = 'Yes'
      }
-// SQL query
+// SQL query to post new child into the database
     const query = `
         INSERT INTO "kids_information" (firstname, age, picture, gender, allergies, nap, pottytrained, notes, parentname, phone, user_id)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);`;
@@ -67,7 +67,7 @@ pool.query(query, [req.body.firstname, req.body.age, req.body.picture, actualGen
  */
 
 router.put('/newchild', rejectUnauthenticated, (req, res) => {  
-    // SQL query
+    // SQL query to update child's information in the database
     const query = `
         UPDATE "kids_information" 
         SET firstname = $1, age = $2, picture = $3, gender = $4, allergies = $5, nap = $6,
@@ -100,7 +100,7 @@ router.delete('/newchild/:id', rejectUnauthenticated, (req, res) => {
     `;
     console.log('IN DELETE kidId: ', req.params.id);
     console.log('IN DELETE user_id: ', req.user.id);
-
+// delete child from the database
     pool.query(query, [req.params.id, req.user.id])
         .then((response) => {
             console.log('This is the kids database DELETE response', response);

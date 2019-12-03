@@ -1,16 +1,4 @@
-/* .paper {
-    min-height: 100px;
-} */
-
-
 .grid-container {
-    /* display: flex;
-    flex-wrap: wrap;
-    /* grid-template-columns: auto auto auto auto;
-    grid-gap: 10px; */
-    /* background-color:#F4A4A4;
-    padding: 10px; */ 
-
     display: flex;
     background-image: url("/images/paperclips.png");
     background-repeat: no-repeat;
@@ -44,9 +32,12 @@
   }
 
   .editablepic {
-    justify-content: center;
-    right: 338px;
-    text-align: center;
+    margin-top: 10px;
+  }
+
+  .editablepic img {
+    width: 100%;
+    height: auto;
   }
 
   .editpicture {
@@ -55,4 +46,12 @@
     left: 338px;
     right: 338px;
     margin: auto;
+  }
+
+  .edit {
+    padding-bottom: 15px;
+  }
+
+  .button {
+    margin: 10px;
   }

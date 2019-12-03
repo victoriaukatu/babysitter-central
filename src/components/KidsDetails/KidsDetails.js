@@ -24,14 +24,17 @@ class KidsDetails extends Component {
         },
     }
 
+    // when clicked, the user will go back the full list of kids
     backToList = () => {
         this.props.history.push('/kids-list');
     }
 
+    // this will not save the changes and will send the user back to the full list of kids
     cancelEdit = () => {
         this.props.history.push('/kids-list');
     }
 
+    // this allows the user to toggle between edit and display mode
     editMode = () => {
         this.setState({
             editable: false,
@@ -39,6 +42,7 @@ class KidsDetails extends Component {
         })
     }
 
+    // this will collect the values that the user types in the inputs and set state with those values
     handleChange = (property) => (event) => {
         this.setState({
             updatedChild: {
@@ -48,6 +52,7 @@ class KidsDetails extends Component {
         })
     }
 
+    // this will save the changes and send the updated information to the database
     saveChanges = () => {
         console.log(this.state.updatedChild);
         this.props.dispatch({ type: 'UPDATE_DETAILS', payload: this.state.updatedChild })
@@ -61,7 +66,7 @@ class KidsDetails extends Component {
             <>
                 {this.state.editable &&
                     <>
-
+                        {/* display mode */}
                         <div class="grid-container">
                             <div class="leftside">
                                 <h1>{this.props.reduxState.details.firstname}</h1>
@@ -86,13 +91,12 @@ class KidsDetails extends Component {
                 }
                 {this.state.editable === false &&
                     <>
+                        {/* edit mode */}
                         <Container className="edit" maxWidth="sm">
                             <Paper>
-                                <center>
                                 <div class="editablepic">
                                     <img class="editpicture" alt="profile" src={this.state.updatedChild.picture} size={70} />
                                 </div>
-                                </center>
                                 <Grid>
                                     <center>
                                     <h1>{this.props.reduxState.details.firstname}</h1>
@@ -116,8 +120,12 @@ class KidsDetails extends Component {
                                 <h2>Parent's Contact Information:</h2>
                                 <h3>Parent's name: <input type="text" value={this.state.updatedChild.parentname} onChange={this.handleChange('parentname')} /></h3>
                                 <h3>Parent's phone number: <input value={this.state.updatedChild.phone} onChange={this.handleChange('phone')} /></h3>
-                                <Button color="secondary" onClick={this.cancelEdit}>Cancel</Button>
-                                <Button color="secondary" onClick={this.saveChanges}>Save</Button>
+                                <div className="button">
+                                    <Button color="secondary" variant="outlined" onClick={this.saveChanges}>Save</Button>
+                                </div>
+                                <div className="button">
+                                    <Button color="secondary" variant="outlined" onClick={this.cancelEdit}>Cancel</Button>
+                                </div>
                                 </center>
                             </Paper>
                         </Container>
