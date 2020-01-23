@@ -2,7 +2,7 @@
     font-size: 27px;
     font-weight: 700;
     display: inline-block;
-    color: #323131;
+    color: white;
     padding-left: 60px;
 }
 
@@ -14,13 +14,13 @@
 .nav-link {
   float: left;
   color: inline-block;
-  color: #323131;
+  color: white;
   background-color: #f98b88;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
   text-decoration: none;
-  font-size: 21px;
+  font-size: 17px;
   padding: 10px;
 
   /* these last two make the logout button in
